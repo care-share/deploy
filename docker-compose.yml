@@ -1,0 +1,19 @@
+db:
+  image: postgres
+app:
+  build: vha-rural-health-pilot-app/
+  links:
+  - db
+  ports:
+   - "80:80"
+openid:
+  build: ./vha-rural-health-openid-connect-overlay/
+  ports:
+    - "8080:8080"
+medrec:
+  build: ./vha-rural-health-pilot-medrec-app/
+  links:
+  - db
+  ports:
+   - "8888:80"
+

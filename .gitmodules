@@ -1,0 +1,9 @@
+[submodule "vha-rural-health-pilot-app"]
+	path = vha-rural-health-pilot-app
+	url = git@gitlab.mitre.org:vha-rural-health-pilot/vha-rural-health-pilot-app.git
+[submodule "vha-rural-health-openid-connect-overlay"]
+	path = vha-rural-health-openid-connect-overlay
+	url = git@gitlab.mitre.org:vha-rural-health-pilot/vha-rural-health-openid-connect-overlay.git
+[submodule "vha-rural-health-pilot-medrec-app"]
+	path = vha-rural-health-pilot-medrec-app
+	url = git@gitlab.mitre.org:vha-rural-health-pilot/vha-rural-health-pilot-medrec-app.git
