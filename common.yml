@@ -1,0 +1,9 @@
+ssl:
+  env_file: 
+    - /opt/secrets.env
+
+rails:
+  extends: ssl
+  environment:
+    RAILS_ENV: production
+
