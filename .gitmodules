@@ -1,6 +1,9 @@
-[submodule "careshare"]
-	path = careshare
-	url = git@gitlab.mitre.org:vha-rural-health-pilot/careshare.git
 [submodule "vha-rural-health-openid-connect-overlay"]
 	path = vha-rural-health-openid-connect-overlay
 	url = git@gitlab.mitre.org:vha-rural-health-pilot/vha-rural-health-openid-connect-overlay.git
+[submodule "hapi-docker"]
+	path = hapi-docker
+	url = git@gitlab.mitre.org:vha-rural-health-pilot/hapi-docker.git
+[submodule "careshare"]
+	path = careshare
+	url = git@gitlab.mitre.org:vha-rural-health-pilot/careshare.git
