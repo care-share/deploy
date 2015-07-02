@@ -2,13 +2,21 @@ careshare:
   build: ./careshare/
   ports:
     - "80:4200"
+
 openid:
+  env_file: ./common.env
   build: ./vha-rural-health-openid-connect-overlay/
   ports:
     - "8888:8080"
   links:
     - db
-fhir:
-  build: ./hapi-docker/
+
 db:
   image: postgres:9.4
+
+fhir:
+  env_file: ./common.env
+  build: ./hapi-docker/
+  ports:
+    - "8080:8080"
+
