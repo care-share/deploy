@@ -8,11 +8,6 @@ openid:
   build: ./vha-rural-health-openid-connect-overlay/
   ports:
     - "8888:8080"
-  links:
-    - db
-
-db:
-  image: postgres:9.4
 
 fhir:
   env_file: ./common.env
