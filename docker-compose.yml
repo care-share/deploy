@@ -3,6 +3,13 @@ careshare:
   ports:
     - "80:4200"
 
+careauth:
+  build: ./careauth/
+  ports:
+    - "3000:3000"
+  links:
+    - mongo
+
 openid:
   env_file: ./common.env
   build: ./vha-rural-health-openid-connect-overlay/
@@ -14,4 +21,7 @@ fhir:
   build: ./hapi-docker/
   ports:
     - "8080:8080"
+
+mongo:
+  image: mongo:3
 

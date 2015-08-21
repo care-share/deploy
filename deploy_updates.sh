@@ -12,6 +12,8 @@ elif ! type "docker-compose" > /dev/null; then
   ERR="Docker Compose is not installed"
 elif [ ! -d "$DIR/careshare" ]; then
   ERR="'$(readlink -f $DIR/careshare)' repo not found"
+elif [ ! -d "$DIR/careauth" ]; then
+  ERR="'$(readlink -f $DIR/careauth)' repo not found"
 elif [ ! -d "$DIR/hapi-docker" ]; then
   ERR="'$(readlink -f $DIR/hapi-docker)' repo not found"
 elif [ ! -d "$DIR/vha-rural-health-openid-connect-overlay" ]; then
@@ -40,6 +42,8 @@ fi
 git pull # update this repo
 cd "$DIR/careshare"
 git pull # update careshare
+cd "$DIR/careauth"
+git pull # update careauth
 cd "$DIR/hapi-docker"
 git pull # update hapi-docker
 cd "$DIR/vha-rural-health-openid-connect-overlay"
