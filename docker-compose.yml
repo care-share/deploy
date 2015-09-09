@@ -2,6 +2,12 @@ careshare:
   env_file: ./common.env
   build: ./careshare/
 
+careshare-remote:
+  env_file: ./common.env
+  environment:
+    - is_openid=true
+  build: ./careshare/
+
 careauth:
   env_file: ./common.env
   build: ./careauth/
@@ -9,6 +15,7 @@ careauth:
     - "80:80"
   links:
     - careshare
+    - careshare-remote
     - openid
     - fhir
     - mongo
