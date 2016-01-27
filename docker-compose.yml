@@ -19,17 +19,21 @@ careauth:
     - careshare-remote
     - openid
     - fhir
+    - nomination-service
     - mongo
 
 openid:
   env_file: ./common.env
-  build: ./vha-rural-health-openid-connect-overlay/
+  build: ./openid/
 
 fhir:
   env_file: ./common.env
-  build: ./hapi-docker/
+  build: ./fhir/
   ports:
     - "8080:8080"
+
+nomination-service:
+  build: ./nomination-service/
 
 mongo:
   image: mongo:3
