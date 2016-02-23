@@ -20,6 +20,7 @@ careauth:
     - openid
     - fhir
     - nomination-service
+    - transcript-service
     - mongo
 
 openid:
@@ -29,11 +30,18 @@ openid:
 fhir:
   env_file: ./common.env
   build: ./fhir/
+# PORTS SHOULD BE REMOVED FOR PRODUCTION
   ports:
     - "8080:8080"
 
 nomination-service:
   build: ./nomination-service/
+
+transcript-service:
+  build: ./transcript-api/
+# PORTS SHOULD BE REMOVED FOR PRODUCTION
+  ports:
+    - "3003:3003"
 
 mongo:
   image: mongo:3
