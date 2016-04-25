@@ -36,6 +36,8 @@ fhir:
 
 nomination-service:
   build: ./nomination-service/
+  ports:
+    - "7293:7293"
 
 transcript-service:
   build: ./transcript-api/
