@@ -38,6 +38,8 @@ nomination-service:
   build: ./nomination-service/
   ports:
     - "7293:7293"
+  volumes:
+    - ./nomination-service/db:/usr/src/db
 
 transcript-service:
   build: ./transcript-api/
