@@ -1,6 +1,6 @@
-# VHA Rural Health Docker Environment
+# VHA ORH Care-Share Pilot -- Docker Environment
 
-This document details how to deploy the necessary services to run the VHA Rural Health app.
+This document details how to deploy the necessary services to run the VHA ORH Care-Share pilot system.
 
 ## Prerequisites for Debian/Ubuntu
 
@@ -8,22 +8,20 @@ This document details how to deploy the necessary services to run the VHA Rural 
 * [Docker installed](http://docs.docker.com/installation/ubuntulinux/)
 * [Docker Compose installed](https://docs.docker.com/compose/install/)
 * In the parent directory of this repository, clone the following git repositories:
- * `vha-rural-health-pilot/careshare`
- * `vha-rural-health-pilot/hapi-docker`
- * `vha-rural-health-pilot/vha-rural-health-openid-connect-overlay`
-* Make sure you do not have any applications running on port 80, 8080, or 8888
-* Use a machine that has at least 2GB of RAM
+  * [care-share/careauth](https://github.com/care-share/careauth)
+  * [care-share/careshare](https://github.com/care-share/careshare)
+  * [care-share/hapi-docker](https://github.com/care-share/hapi-docker)
+  * [care-share/nomination-service](https://github.com/care-share/https://github.com/care-share/nomination-service)
+  * [care-share/vha-rural-health-openid-connect-overlay](https://github.com/care-share/vha-rural-health-openid-connect-overlay)
+  * [care-share/transcript-api](https://github.com/care-share/https://github.com/care-share/transcript-api)
+* Make sure you do not have any applications running on port 80, 443, 3003, 7293, or 8080
+* Use a machine that has at least 8GB of RAM
 
 ## Configuration
 
 1. If it doesn't exist, copy the "`common.env.example`" file to create the "`common.env`" file
 2. Edit the "`common.env`" file and change settings as desired
-3. (Optional) If using TLS encryption, you can generate a keystore and a self-signed certificate:
-
-        $ keytool -genkey -alias myalias -keyalg RSA -keystore ./hapi-docker/docker/tls/keystore.p12 -storetype pkcs12
-        $ cp ./hapi-docker/docker/tls/keystore.p12 ./vha-rural-health-openid-connect-overlay/docker/tls/
-
-   You can find alternate methods for creating keystores at [this link](https://tomcat.apache.org/tomcat-8.0-doc/ssl-howto.html#Prepare_the_Certificate_Keystore)
+3. (Optional) If using TLS encryption, put your private/public keypair in "`careauth/tls/keystore.p12`"
 
 ## Running
 
@@ -36,9 +34,8 @@ This document details how to deploy the necessary services to run the VHA Rural 
         $ docker-compose ps
 
 3. Check the following URLs to see the web services:
-    * **HAPI-FHIR JPA server:** http://localhost:8080/hapi-fhir/
-    * **OpenID server:** http://localhost:8888/openid/
-    * **Rural Health Careshare app:** http://localhost:80/
+    * **Care-Share pilot web interface:** http://localhost:80/
+    * **HAPI-FHIR JPA server:** http://localhost:8080/
 
 ## License
 

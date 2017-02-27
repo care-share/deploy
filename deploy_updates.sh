@@ -14,10 +14,14 @@ elif [ ! -d "$DIR/careshare" ]; then
   ERR="'$(readlink -f $DIR/careshare)' repo not found"
 elif [ ! -d "$DIR/careauth" ]; then
   ERR="'$(readlink -f $DIR/careauth)' repo not found"
-elif [ ! -d "$DIR/hapi-docker" ]; then
-  ERR="'$(readlink -f $DIR/hapi-docker)' repo not found"
-elif [ ! -d "$DIR/vha-rural-health-openid-connect-overlay" ]; then
-  ERR="'$(readlink -f $DIR/vha-rural-health-openid-connect-overlay)' repo not found"
+elif [ ! -d "$DIR/fhir" ]; then
+  ERR="'$(readlink -f $DIR/fhir)' repo not found"
+elif [ ! -d "$DIR/openid" ]; then
+  ERR="'$(readlink -f $DIR/openid)' repo not found"
+elif [ ! -d "$DIR/nomination-service" ]; then
+  ERR="'$(readlink -f $DIR/nomination-service)' repo not found"
+elif [ ! -d "$DIR/transcript-api" ]; then
+  ERR="'$(readlink -f $DIR/transcript-api)' repo not found"
 fi
 
 # If we encountered an error, inform the user and exit
@@ -44,17 +48,21 @@ cd "$DIR/careshare"
 git pull # update careshare
 cd "$DIR/careauth"
 git pull # update careauth
-cd "$DIR/hapi-docker"
+cd "$DIR/fhir"
 git pull # update hapi-docker
-cd "$DIR/vha-rural-health-openid-connect-overlay"
+cd "$DIR/openid"
 git pull # update vha-rural-health-openid-connect-overlay
+cd "$DIR/nomination-service"
+git pull # update nomination-service
+cd "$DIR/transcript-api"
+git pull # update transcript-api
 
 # Compile OpenID server WAR
-cd "$DIR/vha-rural-health-openid-connect-overlay"
+cd "$DIR/openid"
 mvn clean install
 
 # Compile HAPI-FHIR JPA server WAR
-cd "$DIR/hapi-docker/hapi-fhir-jpaserver-example"
+cd "$DIR/fhir/hapi-fhir-jpaserver-example"
 mvn clean install
 
 # build new Docker images if needed
